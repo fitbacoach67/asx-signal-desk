@@ -1,0 +1,42 @@
+name: ASX scan
+
+on:
+  schedule:
+    # Times are UTC. 00:30 & 05:30 UTC = 10:30am & 3:30pm Sydney (AEST).
+    # During daylight saving (Oct–Apr) these land at 11:30am & 4:30pm.
+    - cron: "30 0 * * 1-5"
+    - cron: "30 5 * * 1-5"
+  workflow_dispatch: {}   # lets you trigger a scan manually from the Actions tab
+
+permissions:
+  contents: write
+
+concurrency:
+  group: scan
+  cancel-in-progress: false
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run market scan
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python asx_signal_desk.py scan
+
+      - name: Commit database and dashboard
+        run: |
+          git config user.name "signal-desk-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add asx_desk.db docs/index.html
+          git commit -m "Scan $(date -u +'%Y-%m-%d %H:%M UTC')" || echo "Nothing new to commit"
+          git push
