@@ -1,0 +1,47 @@
+<!doctype html><html><head><meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<title>ASX Signal Desk</title><style>
+:root{--bg:#10151d;--panel:#171e29;--line:#26324a;--text:#e8edf4;--dim:#8b98ab;
+--buy:#3fb47c;--sell:#e0705a;--amber:#f2b544}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);
+font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;padding:24px}
+.wrap{max-width:1000px;margin:0 auto}
+.eyebrow{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--amber)}
+h1{margin:2px 0 4px;font-size:28px}h2{font-size:15px;margin:28px 0 10px;color:var(--dim);
+text-transform:uppercase;letter-spacing:.08em}
+.meta{color:var(--dim);font-size:13px}
+.stats{display:flex;gap:28px;flex-wrap:wrap;border-bottom:2px solid var(--amber);
+padding:16px 0;margin-bottom:8px}
+.stat b{display:block;font-size:10px;letter-spacing:.1em;color:var(--dim);font-weight:600}
+.stat span{font-family:ui-monospace,Menlo,monospace;font-size:17px}
+table{width:100%;border-collapse:collapse;background:var(--panel);border:1px solid var(--line);
+border-radius:10px;overflow:hidden;font-size:13.5px}
+th{font-size:10.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--dim);
+text-align:left;padding:9px 11px;border-bottom:1px solid var(--line)}
+td{padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:0}
+.mono{font-family:ui-monospace,Menlo,monospace}
+.buy{color:var(--buy);font-weight:700}.sell{color:var(--sell);font-weight:700}
+.pos{color:var(--buy)}.neg{color:var(--sell)}
+.conf{display:inline-block;min-width:34px;text-align:center;border:1px solid var(--amber);
+color:var(--amber);border-radius:6px;padding:1px 5px;font-size:12px}
+.foot{margin-top:26px;color:var(--dim);font-size:11px}
+@media(max-width:640px){body{padding:12px}td,th{padding:7px 6px}}
+</style></head><body><div class=wrap>
+<div class=eyebrow>ASX · speculative desk</div><h1>Signal Desk</h1>
+<div class=meta>Last updated Tuesday 21 July 2026, 22:59</div>
+<div class=stats>
+<div class=stat><b>OPEN</b><span>3</span></div>
+<div class=stat><b>UNREALISED</b><span class="">$0.00</span></div>
+<div class=stat><b>REALISED</b><span class="">$0.00</span></div>
+<div class=stat><b>WIN RATE</b><span>—</span></div>
+<div class=stat><b>SIGNALS LOGGED</b><span>4</span></div>
+</div>
+<h2>Open paper positions</h2>
+<table><tr><th>Ticker</th><th>Side</th><th>Units</th><th>Entry</th><th>Last</th><th>P/L</th><th>Target / Stop</th><th>Opened</th></tr><tr><td class=mono><b>NXT.AX</b></td><td class=buy>BUY</td><td class=mono>355</td><td class=mono>$14.06</td><td class=mono>$14.06</td><td class='mono '>$0.00</td><td class=mono>$16.50 / $13.20</td><td class=meta>2026-07-21</td></tr><tr><td class=mono><b>S32.AX</b></td><td class=buy>BUY</td><td class=mono>1149</td><td class=mono>$4.35</td><td class=mono>$4.35</td><td class='mono '>$0.00</td><td class=mono>$5.10 / $4.10</td><td class=meta>2026-07-21</td></tr><tr><td class=mono><b>PLS.AX</b></td><td class=buy>BUY</td><td class=mono>1213</td><td class=mono>$4.12</td><td class=mono>$4.12</td><td class='mono '>$0.00</td><td class=mono>$5.00 / $3.80</td><td class=meta>2026-07-21</td></tr></table>
+<h2>Latest signals</h2>
+<table><tr><th>Scan</th><th>Ticker</th><th>Call</th><th>Conf</th><th>Reasoning</th><th>Entry / Target / Stop</th></tr><tr><td class=mono>2026-07-21 22:59</td><td class=mono><b>NXT.AX</b></td><td class=buy>BUY</td><td><span class=conf>78</span></td><td>7.7% 1d/5d gains, 1.54x volume, RSI 44.8 shows room to run</td><td class=mono>$14.06 / $16.50 / $13.20</td></tr><tr><td class=mono>2026-07-21 22:59</td><td class=mono><b>S32.AX</b></td><td class=buy>BUY</td><td><span class=conf>72</span></td><td>6.6% 1d, 7.4% 5d up, volume 1.09x, RSI 52 neutral</td><td class=mono>$4.35 / $5.10 / $4.10</td></tr><tr><td class=mono>2026-07-21 22:59</td><td class=mono><b>PLS.AX</b></td><td class=buy>BUY</td><td><span class=conf>68</span></td><td>RSI 18.9 oversold, 1.71x volume, sharp 5d/20d decline suggests bounce</td><td class=mono>$4.12 / $5.00 / $3.80</td></tr><tr><td class=mono>2026-07-21 22:59</td><td class=mono><b>DTL.AX</b></td><td class=sell>SELL</td><td><span class=conf>55</span></td><td>RSI 69.7 overbought, 1.66x volume, modest 1d rise may be exhausted</td><td class=mono>$9.78 / $8.80 / $10.30</td></tr></table>
+<h2>Closed positions</h2>
+<table><tr><th>Ticker</th><th>Side</th><th>Entry → Exit</th><th>P/L</th><th>Reason</th><th>Closed</th></tr><tr><td colspan=6 class=meta>Nothing closed yet.</td></tr></table>
+<div class=foot>Research tool — AI-generated signals from market data. Paper positions are hypothetical. Not financial advice.</div>
+</div></body></html>
