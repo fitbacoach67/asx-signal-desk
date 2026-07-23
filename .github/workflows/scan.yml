@@ -35,9 +35,16 @@ jobs:
         run: python asx_signal_desk.py scan
 
       - name: Commit database and dashboard
+        if: always()
         run: |
           git config user.name "signal-desk-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add asx_desk.db docs/index.html
-          git commit -m "Scan $(date -u +'%Y-%m-%d %H:%M UTC')" || echo "Nothing new to commit"
+          git add -f asx_desk.db docs/index.html
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+          git commit -m "Scan $(date -u +'%Y-%m-%d %H:%M UTC')"
+          git pull --rebase --autostash
           git push
+
