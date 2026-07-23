@@ -763,7 +763,7 @@ def build_dashboard(conn):
             side = "sellpick" if r["picked"] == "SELL" else ""
             badges += f"<span class='badge b-pick {side}'>{esc(r['picked'])}</span>"
         elif r["shortlisted"]:
-            badges += "<span class='badge b-short'>SHORT</span>"
+            badges += "<span class='badge b-short'>REVIEWED</span>"
         m = {k: r[k] for k in ("chg_1d", "chg_5d", "chg_20d", "rsi14", "vol_x_avg", "hi_60d_pct")}
         width = max(4, int(100 * r["score"] / top_score))
         return (
