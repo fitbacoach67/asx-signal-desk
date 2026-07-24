@@ -35,7 +35,6 @@ jobs:
         run: python asx_signal_desk.py scan
 
       - name: Commit database and dashboard
-        if: always()
         run: |
           git config user.name "signal-desk-bot"
           git config user.email "actions@users.noreply.github.com"
@@ -45,6 +44,12 @@ jobs:
             exit 0
           fi
           git commit -m "Scan $(date -u +'%Y-%m-%d %H:%M UTC')"
-          git pull --rebase --autostash
-          git push
+          for i in 1 2 3; do
+            git pull --rebase --autostash -X theirs && git push && exit 0
+            echo "Push collided, retrying..."
+            sleep 5
+          done
+          echo "Push failed after 3 attempts"
+          exit 1
+
 
